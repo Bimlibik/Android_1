@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Шпаргалка по изучению Android</string>
+    <string name="lesson_list_name">Список шпаргалок</string>
     <string name="start_text_view">Добро пожаловать!</string>
     <string name="star_button">Начать изучение</string>
+    <string name="change_color_button">Изменить цвет текста</string>
+    <string name="lesson_list">В разработке...</string>
 </resources>
