@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Cheat sheet for learning Android</string>
+    <string name="lesson_list_name">List of cheat sheets</string>
+    <string name="star_button">Start</string>
+    <string name="lesson_list">In developing...</string>
+    <string name="statistics">Statistics</string>
+    <string name="date">Date:</string>
+    <string name="date_text">00.00.0000</string>
+    <string name="rank">Rank:</string>
+    <string name="rank_text">Newbie</string>
+    <string name="number_of_lessons_learned">Number of lessons learned:</string>
+    <string name="number_of_lessons_learned_text">0</string>
+    <string name="last_of_lessons_learned">Last lesson passed:</string>
+    <string name="last_of_lessons_learned_text">-</string>
+    <string name="lessons_learned_per_day">Lessons learned per day</string>
+    <string name="lessons_learned_per_day_text">0</string>
+    <string name="save">Save</string>
+    <string name="notes">Notes</string>
+    <string name="new_record_text">New record!</string>
+    <string name="excess_lesson">Selected number more than existing lessons</string>
+    <string name="main_page">Main page</string>
+    <string name="rank_learner">Learner</string>
+    <string name="rank_docent">Docent</string>
+    <string name="rank_master">Master</string>
+    <string name="rank_professor">Professor</string>
+    <string name="toast_add_notes">I dont know how to make notes yet</string>
+</resources>
