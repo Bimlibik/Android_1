@@ -1,24 +1,22 @@
-package com.example.foxy.android.Activities;
+package com.example.foxy.android.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.foxy.android.Model.Lesson;
 import com.example.foxy.android.R;
-
-
+import com.example.foxy.android.models.Lesson;
+import com.example.foxy.android.utils.ToastUtils;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView reoordDate;
+    private TextView recordDate;
     private TextView lessonSumCount;
     private TextView lessonCount;
     private TextView rank;
@@ -27,8 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private Button saveLessonButton;
     private Button startButton;
     private Button notesButton;
+    private MenuItem shareMenuItem;
     private int count;
     private int lessonRecordCount;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,31 +36,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Lesson lesson = new Lesson(0, new Date());
+
         unitGUI(lesson);
         onStartButtonClick();
         onNotesButtonClick();
         onSeekBarClick();
         onSaveLessonButtonClick();
-
-
-        // смена цвета текста при нажатии на кнопку
-//        changeColorButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                welcomeTextView.setTextColor(getRandomColor());
-//            }
-//        });
-
-
-        // переход на следующий экран
-
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_main_menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == shareMenuItem.getItemId()) {
+            shareStatistics();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private void unitGUI(Lesson lesson) {
-        reoordDate = findViewById(R.id.main_activity_record_data);
-        reoordDate.setText(lesson.getFormatDate());
+        recordDate = findViewById(R.id.main_activity_record_data);
+        recordDate.setText(lesson.getFormatDate());
 
         lessonCount = findViewById(R.id.main_activity_lesson_count);
         lessonSumCount = findViewById(R.id.main_activity_lesson_record);
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         notesButton = findViewById(R.id.main_activity_notes_button);
         rank = findViewById(R.id.main_activity_rank);
         lastLesson = findViewById(R.id.main_activity_last_lesson);
+        shareMenuItem = findViewById(R.id.activity_main_share);
     }
 
     private void onStartButtonClick() {
@@ -97,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 lessonCount.setText(String.valueOf(progress));
+
             }
 
             @Override
@@ -123,27 +126,13 @@ public class MainActivity extends AppCompatActivity {
                     checkRank(count);
                     if (lessonCountToInt > lessonRecordCount) {
                         lessonRecordCount = lessonCountToInt;
-                        recordToast();
+                        ToastUtils.shortInfoToast(getString(R.string.new_record_text), getApplicationContext());
                     }
                 } else {
-                    excessToast();
+                    ToastUtils.shortInfoToast(getString(R.string.excess_lesson), getApplicationContext());
                 }
             }
         });
-    }
-
-    private void recordToast() {
-        Toast toast = Toast.makeText(getApplicationContext(),
-                R.string.new_record_text, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
-    }
-
-    private void excessToast() {
-        Toast toast = Toast.makeText(getApplicationContext(),
-                R.string.excess_lesson, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
     }
 
     private void checkRank(int lessonCount) {
@@ -161,11 +150,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // генерирует рандомный цвет
-//    public int getRandomColor(){
-//        Random rnd = new Random();
-//        return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256),
-//                rnd.nextInt(256));
-//    }
+
+    private void shareStatistics(){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("plain/text");
+        intent.putExtra(Intent.EXTRA_STREAM, lessonRecordCount);
+        startActivity(Intent.createChooser(intent, "Поделиться"));
+
+    }
+
+
 
 }

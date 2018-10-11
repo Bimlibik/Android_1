@@ -1,25 +1,28 @@
-package com.example.foxy.android.Model;
+package com.example.foxy.android.models;
+
+import android.widget.ImageView;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class Lesson {
-
     private String titleLesson;
     private String descriptionLesson;
-    private String imageLesson;
+    private int imageLesson;
     private int recordLessonCount;
     private Date recordDate;
+
 
     public Lesson(int recordLessonCount, Date recordDate) {
         this.recordLessonCount = recordLessonCount;
         this.recordDate = recordDate;
     }
 
-    public Lesson(String titleLesson, String descriptionLesson, String imageLesson) {
+    public Lesson(int imageLesson, String titleLesson, String descriptionLesson) {
         this.titleLesson = titleLesson;
-        this.descriptionLesson = descriptionLesson;
         this.imageLesson = imageLesson;
     }
 
@@ -59,11 +62,13 @@ public class Lesson {
         this.descriptionLesson = descriptionLesson;
     }
 
-    public String getImageLesson() {
+    public int getImageLesson() {
         return imageLesson;
     }
 
-    public void setImageLesson(String imageLesson) {
+    public void setImageLesson(int imageLesson) {
         this.imageLesson = imageLesson;
     }
+
 }
+
