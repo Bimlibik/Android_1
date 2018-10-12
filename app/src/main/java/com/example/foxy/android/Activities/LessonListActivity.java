@@ -1,6 +1,7 @@
 package com.example.foxy.android.activities;
 
 import android.content.Intent;
+import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -40,12 +41,14 @@ public class LessonListActivity extends AppCompatActivity {
         adapter.setClickListener(new DataAdapter.ItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                ToastUtils.shortInfoToast("Click", getApplicationContext());
+                ToastUtils.shortInfoToast(String.valueOf(position), getApplicationContext());
+
 
 //                доработать, чтобы при нажатии открывался урок
 //                Intent intent = new Intent(LessonListActivity.this, LessonDescriptionActivity.class);
-//                intent.putExtra(LessonDescriptionActivity.EXTRA_POSITION, position);
-//                view.getContext().startActivity(intent);
+//                intent.putExtra("position", position);
+//
+//                startActivity(intent);
             }
         });
 

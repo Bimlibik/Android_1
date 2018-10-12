@@ -13,8 +13,6 @@ import java.util.List;
 
 public class LessonDescriptionActivity extends AppCompatActivity {
 
-    static final String EXTRA_POSITION = "item position";
-    int itemPosition;
     private ImageView imageLesson;
     private TextView title;
     private TextView description;
@@ -25,10 +23,12 @@ public class LessonDescriptionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson_description);
 
-        itemPosition = (Integer) getIntent().getExtras().get(EXTRA_POSITION);
         imageLesson = findViewById(R.id.lesson_description_icon);
         title = findViewById(R.id.lesson_description_title);
         description = findViewById(R.id.lesson_description_text);
+
+        Intent intent = getIntent();
+        String lessonTitle;
         }
 
 

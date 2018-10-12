@@ -19,11 +19,11 @@
 
         <ImageView
             android:id="@+id/main_activity_image_view"
-            app:srcCompat="@drawable/icon_start"
-            android:layout_width="370dp"
-            android:layout_height="198dp"
+            android:layout_width="225dp"
+            android:layout_height="46dp"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            app:srcCompat="@drawable/icon_start" />
 
         <!--блок с рекордами-->
         <LinearLayout
