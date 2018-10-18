@@ -21,7 +21,7 @@ public class Lesson {
         this.recordDate = recordDate;
     }
 
-    public Lesson(int imageLesson, String titleLesson, String descriptionLesson) {
+    public Lesson(int imageLesson, String titleLesson) {
         this.titleLesson = titleLesson;
         this.imageLesson = imageLesson;
     }

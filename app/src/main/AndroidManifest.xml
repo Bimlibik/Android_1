@@ -2,42 +2,57 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.foxy.android">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_main"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
 
         <!-- Главный экран -->
-        <!--можно поставить запрет наповорота экрана-->
-        <!--android:screenOrientation="portrait / landscape"-->
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.StartActivity"
             android:label="@string/app_name"
-            android:configChanges="keyboardHidden|orientation|screenSize">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- Экран, в котором будет список уроков -->
+        <!--Статистика-->
+        <activity
+            android:name=".activities.StatisticsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/statistics"
+            android:parentActivityName=".activities.StartActivity">
+
+        </activity>
+
+        <!-- Список уроков -->
         <activity
             android:name=".activities.LessonListActivity"
-            android:label="@string/lesson_list_name">
+            android:label="@string/theory"
+            android:parentActivityName=".activities.StartActivity"
+            android:screenOrientation="portrait">
+
         </activity>
 
         <!-- Заметки -->
         <activity
             android:name=".activities.NotesActivity"
-            android:label="@string/notes">
+            android:label="@string/notes"
+            android:parentActivityName=".activities.StartActivity">
 
+            <!--Описание урока-->
         </activity>
-
         <activity
-            android:name=".activities.LessonDescriptionActivity">
+            android:name=".activities.LessonDescriptionActivity"
+            android:parentActivityName=".activities.LessonListActivity">
+
         </activity>
 
     </application>

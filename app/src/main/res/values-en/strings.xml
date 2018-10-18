@@ -9,7 +9,7 @@
     <string name="rank">Rank:</string>
     <string name="rank_text">Newbie</string>
     <string name="number_of_lessons_learned">Number of lessons learned:</string>
-    <string name="number_of_lessons_learned_text">0</string>
+    <string name="zero">0</string>
     <string name="last_of_lessons_learned">Last lesson passed:</string>
     <string name="last_of_lessons_learned_text">-</string>
     <string name="lessons_learned_per_day">Lessons learned per day</string>
@@ -24,4 +24,5 @@
     <string name="rank_master">Master</string>
     <string name="rank_professor">Professor</string>
     <string name="toast_add_notes">I dont know how to make notes yet</string>
+    <string name="theory">Теория</string>
 </resources>

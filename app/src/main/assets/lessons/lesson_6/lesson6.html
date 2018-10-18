@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        figure {
+        width: 96,5%; /* Ширина */
+        margin: 0 3.5% 0 3.5%; /* Отступ слева */
+        background: #f0f0f0; /* Цвет фона */
+        border-radius: 5px; /* Радиус скругления */
+        padding: 2%; /* Поля */
+        }
+        figure:first-child {
+        margin-left: 0; /* Убираем отступ для первого элемента */
+        }
+
+    </style>
+</head>
+
+<body>
+
+<h1 align="center">Урок 6. Хранение данных с помощью SharedPreferences</h1>
+
+<p align="justify">SharedPreferences - постоянное хранилище на платформе Android, используемое
+    приложениями для хранения своих настроек. При использовании SharedPreferences значение
+    сохраняется
+    в виде пары: <strong>ключ</strong> и <strong>значение</strong>.</p>
+
+<h3>Алгоритм использования:</h3>
+
+<p align="justify">1. Для удобства создать в Activity константу, которая будет в дальнейшем ключом:</p>
+    <p>  <code translate="no">private final String SAVED_SETTINGS = "SAVED_SETTINGS";</code></p>
+
+<p align="justify">2. Создать переменную представляющую экземпляр класса
+    <strong>SharedPreferences</strong>:</p>
+    <p><code translate="no">private SharedPreferences settings;</code></p>
+
+<p align="justify">3. Создать метод, который будет сохранять настройки:</p>
+   <p> <code translate="no">private void saveSettings() { <br>
+        settings = getPreferences(MODE_PRIVATE); <br>
+        SharedPreferences.Editor editor = settings.edit(); <br>
+        editor.putString(SAVED_SETTINGS, record.getText().toString()); <br>
+        editor.apply(); <br>
+        }</code></p>
+
+<p align="justify">- <strong>getPreferences()</strong> - с помощью данного метода получаем объект
+    класса SharedPreferences, который позволяет работать с данными. Методу передается конcтанта
+    для настройки доступа (существует несколько видов, но рекомендуется использовать только MODE_PRIVATE)</p>
+
+<p align="justify">- класс <strong>SharedPreferences.Editor</strong> необходим для возможности
+    внесения изменений.</p>
+
+<p align="justify">- <strong>putString()</strong> - передаем в метод ключ и значение, которые нужно
+    сохранить</p>
+
+<p align="justify">- <strong>apply()</strong> - вызываем для сохранения данных.</p>
+
+<p align="justify">4. Создать метод, который будет загружать данные из хранилища:</p>
+    <p> <code translate="no">private void loadSettings() { <br>
+        settings = getPreferences(MODE_PRIVATE); <br>
+        String savedRecord = settings.getString(SAVED_SETTINGS, ""); <br>
+        record.setText(savedRecord); <br>
+        }</code></p>
+<p align="justify">- с помощью метода <strong>getString()</strong> считываем сохраненные данные.
+В параметрах метода указывается ключ и значение по умолчанию</p>
+<p align="justify">- с помощью метода <strong>setText()</strong> устанавливаем сохраненое значение.</p>
+<p align="justify">5. Чтобы сохранение и загрузка происходили автоматически при закрытии и открытии
+    приложения, необходимо метод <strong>saveSettings()</strong> вызвать в методе <strong>onPause()</strong>,
+а метод <strong>loadSettings()</strong> в методе <strong>onResume()</strong>.</p>
+
+</body>
+
+</html>

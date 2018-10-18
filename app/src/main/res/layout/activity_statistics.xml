@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:orientation="vertical"
+    tools:context=".activities.StatisticsActivity">
+
+    <!--основной layout-->
+    <LinearLayout style="@style/StatisticsActivityVerticalLinearLayoutStyle">
+
+        <ImageView
+            android:id="@+id/statistics_activity_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_statistics_activity_statistics" />
+
+        <!--блок с рекордами-->
+        <LinearLayout
+            style="@style/StatisticsActivityVerticalLinearLayoutStyle"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp">
+
+            <!--дата-->
+            <LinearLayout style="@style/StartActivityHorizontalLinearLayoutStyle">
+                <TextView
+                    style="@style/StatisticsActivityPrimaryTextViewStyle"
+                    android:text="@string/date" />
+
+                <TextView
+                    android:id="@+id/statistics_activity_record_data"
+                    style="@style/StatisticsActivityChangeTextViewStyle"
+                    android:text="@string/date_text" />
+            </LinearLayout>
+
+            <!--звание-->
+            <LinearLayout style="@style/StartActivityHorizontalLinearLayoutStyle">
+                <TextView
+                    style="@style/StatisticsActivityPrimaryTextViewStyle"
+                    android:text="@string/rank" />
+
+                <TextView
+                    android:id="@+id/statistics_activity_rank"
+                    style="@style/StatisticsActivityChangeTextViewStyle"
+                    android:text="@string/rank_newbie" />
+            </LinearLayout>
+
+            <!--количество пройденных уроков-->
+            <LinearLayout style="@style/StartActivityHorizontalLinearLayoutStyle">
+                <TextView
+                    style="@style/StatisticsActivityPrimaryTextViewStyle"
+                    android:text="@string/number_of_lessons_learned" />
+
+                <TextView
+                    android:id="@+id/statistics_activity_lesson_record"
+                    style="@style/StatisticsActivityChangeTextViewStyle"
+                    android:text="@string/zero" />
+            </LinearLayout>
+
+            <!--последний пройденный урок-->
+            <LinearLayout style="@style/StartActivityHorizontalLinearLayoutStyle">
+                <TextView
+                    style="@style/StatisticsActivityPrimaryTextViewStyle"
+                    android:text="@string/last_of_lessons_learned" />
+
+                <TextView
+                    android:id="@+id/statistics_activity_last_lesson"
+                    style="@style/StatisticsActivityChangeTextViewStyle"
+                    android:text="@string/last_of_lessons_learned_text" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--отображение количества, выбранного ползунком-->
+        <LinearLayout
+            style="@style/StatisticsActivityVerticalLinearLayoutStyle"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/lessons_learned_per_day"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                style="@style/BoldFontStyle"/>
+
+            <TextView
+                android:id="@+id/statistics_activity_lesson_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:text="@string/zero"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="15dp"
+                style="@style/BoldFontStyle"/>
+
+            <!--выбор количества ползунком-->
+            <SeekBar
+                android:id="@+id/statistics_activity_seek_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:max="200"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            style="@style/StartActivityHorizontalLinearLayoutStyle">
+            <Button
+                android:id="@+id/statistics_activity_save_button"
+                style="@style/StatisticsActivityButtonStyle"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:text="@string/save" />
+
+            <Button
+                android:id="@+id/statistics_activity_reset_button"
+                style="@style/StatisticsActivityButtonStyle"
+                android:layout_marginRight="16dp"
+                android:text="@string/reset"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
