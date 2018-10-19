@@ -1,15 +1,12 @@
 <resources>
     <!--StartActivity-->
     <string name="app_name">Изучение Android</string>
-    <string name="share">Поделиться</string>
-    <string name="settings">Настройки</string>
     <string name="about_app">О приложении</string>
     <string name="theory">Теория</string>
     <string name="cheat">Шпаргалки</string>
     <string name="notes">Заметки</string>
     <string name="statistics">Статистика</string>
     <string name="exit">Выход</string>
-    <string name="i_studying_android">Ура! Я начал изучать Android!</string>
 
     <!--LessonListActivity-->
 
@@ -28,7 +25,6 @@
     <string name="last_of_lessons_learned_text">-</string>
     <string name="lessons_learned_per_day">Пройдено уроков за день</string>
     <string name="save">Сохранить</string>
-    <string name="reset">Сброс</string>
     <string name="new_record_text">Новый рекорд!</string>
     <string name="excess_lesson">Выбранное количество больше существующих уроков</string>
 
@@ -37,7 +33,4 @@
 
     <!--LessonDescription-->
     <string name="next_text">Далее</string>
-
-
-
 </resources>

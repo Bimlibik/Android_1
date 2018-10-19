@@ -8,4 +8,140 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MatchParent">
+    <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="WrapContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--Start Activity Style-->
+
+    <style name="StartActivityButtonStyle" parent="BoldFontStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">3</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:background">@color/color_background</item>
+        <item name="android:textSize">17dp</item>
+        <item name="android:gravity">center|left</item>
+    </style>
+
+    <style name="StartActivityImageMainStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+    </style>
+
+    <style name="StartActivityHorizontalLinearLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:background">@color/color_background</item>
+    </style>
+
+    <style name="StartActivityImageButtonStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@color/color_background</item>
+    </style>
+
+    <style name="StartActivityDividerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorDivider</item>
+    </style>
+
+    <!--Lesson List Item Style-->
+
+    <style name="ListItemActivityHorizontalLinearLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:background">@color/color_background</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="ListItemActivityTextViewStyle" parent="BoldFontStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">3</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="ListItemActivityDividerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorDivider</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <!--Statistics Activity Style-->
+
+    <style name="StatisticsActivityVerticalLinearLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="StatisticsActivityHorizontalLinearLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="StatisticsActivityPrimaryTextViewStyle" parent="BoldFontStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textSize">17dp</item>
+    </style>
+
+    <style name="StatisticsActivityChangeTextViewStyle" parent="UsualFontStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="StatisticsActivityButtonStyle" parent="BoldFontStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:background">@color/colorPrimaryLight</item>
+    </style>
+
+    <!--Общее-->
+
+    <style name="BoldFontStyle">
+        <item name="android:fontFamily">@font/rubik_light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="UsualFontStyle">
+        <item name="android:fontFamily">@font/rubik_light</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
 </resources>
