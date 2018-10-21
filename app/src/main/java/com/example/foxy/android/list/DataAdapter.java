@@ -1,4 +1,4 @@
-package com.example.foxy.android.adapter;
+package com.example.foxy.android.list;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.foxy.android.R;
 import com.example.foxy.android.models.Lesson;
-
 import java.util.List;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
@@ -32,9 +31,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Lesson lesson = lessonList.get(position);
-        holder.titleLesson.setText(lesson.getTitleLesson());
-        holder.image.setImageResource(lesson.getImageLesson());
+        holder.bindView(lessonList.get(position));
     }
 
     //    возвращает количество элементов, присутствующих в данных
@@ -54,6 +51,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
             image = itemView.findViewById(R.id.lesson_list_item_image);
             titleLesson = itemView.findViewById(R.id.lesson_list_item_title);
             itemView.setOnClickListener(this);
+        }
+
+        public void bindView(Lesson lesson) {
+            titleLesson.setText(lesson.getTitleLesson());
+            image.setImageResource(lesson.getImageLesson());
         }
 
         @Override

@@ -7,8 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import com.example.foxy.android.R;
-import com.example.foxy.android.adapter.DataAdapter;
+import com.example.foxy.android.list.DataAdapter;
 import com.example.foxy.android.models.Lesson;
+import com.example.foxy.android.utils.Constants;
 import com.example.foxy.android.utils.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +31,9 @@ public class LessonListActivity extends AppCompatActivity {
 
         lessonListRecyclerView = findViewById(R.id.lesson_list_recycler_view);
         adapter = new DataAdapter(this, lessonList);
-        onAdapterClick();
+        onListItemClick();
         lessonListRecyclerView.setAdapter(adapter);
+
 
     }
 
@@ -40,16 +42,20 @@ public class LessonListActivity extends AppCompatActivity {
             Intent intent = new Intent(LessonListActivity.this, StatisticsActivity.class);
             startActivity(intent);
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 
-    private void onAdapterClick() {
+
+
+    private void onListItemClick() {
         adapter.setClickListener(new DataAdapter.ItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 ToastUtils.shortInfoToast(String.valueOf(position), getApplicationContext());
                 Intent intent = new Intent(LessonListActivity.this, LessonDescriptionActivity.class);
-                intent.putExtra("position", position);
+                intent.putExtra(Constants.POSITION, position);
                 startActivity(intent);
             }
         });

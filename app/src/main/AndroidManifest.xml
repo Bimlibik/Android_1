@@ -19,11 +19,12 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!--Статистика-->
+        <!-- Статистика -->
         <activity
             android:name=".activities.StatisticsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -43,18 +44,17 @@
 
         <!-- Заметки -->
         <activity
-            android:name=".activities.NotesActivity"
+            android:name=".activities.NotesListActivity"
             android:label="@string/notes"
             android:parentActivityName=".activities.StartActivity">
 
-            <!--Описание урока-->
+            <!-- Описание урока -->
         </activity>
         <activity
             android:name=".activities.LessonDescriptionActivity"
             android:parentActivityName=".activities.LessonListActivity">
 
         </activity>
-
     </application>
 
 </manifest>
