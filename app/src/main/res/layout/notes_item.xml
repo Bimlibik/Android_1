@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/notes_item_title_text_view"
+        android:id="@+id/notes_item_text_view_title"
         style="@style/BoldFontStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         android:layout_alignParentTop="true"/>
 
     <TextView
-        android:id="@+id/notes_item_note_text_view"
+        android:id="@+id/notes_item_text_view_note"
         style="@style/UsualFontStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,10 +30,10 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:textSize="15dp"
-        android:layout_below="@id/notes_item_title_text_view" />
+        android:layout_below="@id/notes_item_text_view_title" />
 
     <TextView
-        android:id="@+id/notes_item_date_text_view"
+        android:id="@+id/notes_item_text_view_date"
         style="@style/UsualFontStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,10 +41,10 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:textSize="12dp"
-        android:layout_below="@id/notes_item_note_text_view" />
+        android:layout_below="@id/notes_item_text_view_note" />
 
     <ImageView
-        android:id="@+id/notes_item_image_view"
+        android:id="@+id/notes_item_image_view_clear"
         android:src="@drawable/ic_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,6 +57,6 @@
     <View
         android:id="@+id/notes_item_divider"
         style="@style/ListItemActivityDividerStyle"
-        android:layout_below="@id/notes_item_date_text_view"/>
+        android:layout_below="@id/notes_item_text_view_date"/>
 
 </RelativeLayout>

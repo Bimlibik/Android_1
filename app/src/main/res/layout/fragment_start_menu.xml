@@ -5,7 +5,7 @@
     style="@style/MatchParent"
     android:orientation="vertical"
     android:background="@color/color_background"
-    tools:context=".activities.StartActivity">
+    tools:context=".fragments.StartMenuFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:background="@color/colorPrimary">
 
         <ImageView
-            android:id="@+id/start_activity_image_view_main"
+            android:id="@+id/fragment_start_menu_image_view_main"
             style="@style/StartActivityImageMainStyle"
             android:src="@drawable/img_start_activity_book" />
 
@@ -35,12 +35,12 @@
             style="@style/StartActivityHorizontalLinearLayoutStyle">
 
             <ImageView
-                android:id="@+id/start_activity_image_view_info"
+                android:id="@+id/fragment_start_menu_image_view_info"
                 style="@style/StartActivityImageButtonStyle"
                 android:src="@drawable/ic_start_activity_information" />
 
             <Button
-                android:id="@+id/start_activity_button_info"
+                android:id="@+id/fragment_start_menu_button_info"
                 style="@style/StartActivityButtonStyle"
                 android:text="@string/about_app" />
         </LinearLayout>
@@ -52,12 +52,12 @@
             style="@style/StartActivityHorizontalLinearLayoutStyle">
 
             <ImageView
-                android:id="@+id/start_activity_image_view_theory"
+                android:id="@+id/fragment_start_menu_image_view_theory"
                 style="@style/StartActivityImageButtonStyle"
                 android:src="@drawable/ic_start_activity_theory" />
 
             <Button
-                android:id="@+id/start_activity_button_theory"
+                android:id="@+id/fragment_start_menu_button_theory"
                 style="@style/StartActivityButtonStyle"
                 android:fontFamily="@assets/fonts/rubikLight"
                 android:text="@string/theory" />
@@ -70,12 +70,12 @@
             style="@style/StartActivityHorizontalLinearLayoutStyle">
 
             <ImageView
-                android:id="@+id/start_activity_image_view_cheat"
+                android:id="@+id/fragment_start_menu_image_view_cheat"
                 style="@style/StartActivityImageButtonStyle"
                 android:src="@drawable/ic_start_activity_cheat" />
 
             <Button
-                android:id="@+id/start_activity_button_cheat"
+                android:id="@+id/fragment_start_menu_button_cheat"
                 style="@style/StartActivityButtonStyle"
                 android:text="@string/cheat" />
         </LinearLayout>
@@ -87,12 +87,12 @@
             style="@style/StartActivityHorizontalLinearLayoutStyle">
 
             <ImageView
-                android:id="@+id/start_activity_image_view_notes"
+                android:id="@+id/fragment_start_menu_image_view_notes"
                 style="@style/StartActivityImageButtonStyle"
                 android:src="@drawable/ic_start_activity_notes" />
 
             <Button
-                android:id="@+id/start_activity_button_notes"
+                android:id="@+id/fragment_start_menu_button_notes"
                 style="@style/StartActivityButtonStyle"
                 android:text="@string/notes" />
         </LinearLayout>
@@ -104,12 +104,12 @@
             style="@style/StartActivityHorizontalLinearLayoutStyle">
 
             <ImageView
-                android:id="@+id/start_activity_image_view_statistics"
+                android:id="@+id/fragment_start_menu_image_view_statistics"
                 style="@style/StartActivityImageButtonStyle"
                 android:src="@drawable/ic_start_activity_statistics" />
 
             <Button
-                android:id="@+id/start_activity_button_statistics"
+                android:id="@+id/fragment_start_menu_button_statistics"
                 style="@style/StartActivityButtonStyle"
                 android:text="@string/statistics" />
         </LinearLayout>
@@ -121,12 +121,12 @@
             style="@style/StartActivityHorizontalLinearLayoutStyle">
 
             <ImageView
-                android:id="@+id/start_activity_image_view_exit"
+                android:id="@+id/fragment_start_menu_image_view_exit"
                 style="@style/StartActivityImageButtonStyle"
                 android:src="@drawable/ic_start_activity_exit" />
 
             <Button
-                android:id="@+id/start_activity_button_exit"
+                android:id="@+id/fragment_start_menu_button_exit"
                 style="@style/StartActivityButtonStyle"
                 android:text="@string/exit" />
         </LinearLayout>

@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     android:background="@color/color_background"
     android:orientation="vertical"
-    tools:context=".activities.StatisticsActivity">
+    tools:context=".fragments.StatisticsFragment">
 
     <!--основной layout-->
     <LinearLayout style="@style/StatisticsActivityVerticalLinearLayoutStyle">
 
         <ImageView
-            android:id="@+id/statistics_activity_image_view"
+            android:id="@+id/statistics_fragment_image_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -34,7 +34,7 @@
                     android:text="@string/date" />
 
                 <TextView
-                    android:id="@+id/statistics_activity_record_data"
+                    android:id="@+id/statistics_fragment_record_data"
                     style="@style/StatisticsActivityChangeTextViewStyle"
                     android:text="@string/date_text" />
             </LinearLayout>
@@ -46,7 +46,7 @@
                     android:text="@string/rank" />
 
                 <TextView
-                    android:id="@+id/statistics_activity_rank"
+                    android:id="@+id/statistics_fragment_rank"
                     style="@style/StatisticsActivityChangeTextViewStyle"
                     android:text="@string/rank_newbie" />
             </LinearLayout>
@@ -58,7 +58,7 @@
                     android:text="@string/number_of_lessons_learned" />
 
                 <TextView
-                    android:id="@+id/statistics_activity_lesson_record"
+                    android:id="@+id/statistics_fragment_lesson_record"
                     style="@style/StatisticsActivityChangeTextViewStyle"
                     android:text="@string/zero" />
             </LinearLayout>
@@ -70,7 +70,7 @@
                     android:text="@string/last_of_lessons_learned" />
 
                 <TextView
-                    android:id="@+id/statistics_activity_last_lesson"
+                    android:id="@+id/statistics_fragment_last_lesson"
                     style="@style/StatisticsActivityChangeTextViewStyle"
                     android:text="@string/last_of_lessons_learned_text" />
             </LinearLayout>
@@ -93,7 +93,7 @@
                 style="@style/BoldFontStyle"/>
 
             <TextView
-                android:id="@+id/statistics_activity_lesson_count"
+                android:id="@+id/statistics_fragment_lesson_count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -106,7 +106,7 @@
 
             <!--выбор количества ползунком-->
             <SeekBar
-                android:id="@+id/statistics_activity_seek_bar"
+                android:id="@+id/statistics_fragment_seek_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -119,14 +119,14 @@
         <LinearLayout
             style="@style/StartActivityHorizontalLinearLayoutStyle">
             <Button
-                android:id="@+id/statistics_activity_save_button"
+                android:id="@+id/statistics_fragment_save_button"
                 style="@style/StatisticsActivityButtonStyle"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="8dp"
                 android:text="@string/save" />
 
             <Button
-                android:id="@+id/statistics_activity_reset_button"
+                android:id="@+id/statistics_fragment_reset_button"
                 style="@style/StatisticsActivityButtonStyle"
                 android:layout_marginRight="16dp"
                 android:text="@string/reset"/>

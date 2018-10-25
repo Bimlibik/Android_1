@@ -7,10 +7,10 @@
     android:background="@color/color_background"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activities.LessonListActivity">
+    tools:context=".fragments.LessonListFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/lesson_list_recycler_view"
+        android:id="@+id/fragment_lesson_list_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
