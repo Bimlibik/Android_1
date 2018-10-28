@@ -10,7 +10,7 @@
     android:orientation="vertical">
 
 
-    <LinearLayout style="@style/ListItemActivityHorizontalLinearLayoutStyle">
+    <LinearLayout style="@style/LessonListItemHorizontalLinearLayoutStyle">
 
         <ImageView
             android:id="@+id/lesson_list_item_image"
@@ -21,12 +21,12 @@
 
         <TextView
             android:id="@+id/lesson_list_item_title"
-            style="@style/ListItemActivityTextViewStyle" />
+            style="@style/BoldFontStyle.LessonListItemTextViewStyle" />
 
     </LinearLayout>
 
     <View
         android:id="@+id/lesson_list_item_divider"
-        style="@style/ListItemActivityDividerStyle" />
+        style="@style/LessonListItemDividerStyle" />
 
 </LinearLayout>

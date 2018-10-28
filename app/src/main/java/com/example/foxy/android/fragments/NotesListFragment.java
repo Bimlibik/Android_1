@@ -31,6 +31,8 @@ public class NotesListFragment extends Fragment {
         notesAdapter = new NotesAdapter();
         notesRecyclerView.setAdapter(notesAdapter);
         removeImageView = view.findViewById(R.id.notes_item_image_view_clear);
+
+        getActivity().setTitle(getString(R.string.notes));
         return view;
     }
 

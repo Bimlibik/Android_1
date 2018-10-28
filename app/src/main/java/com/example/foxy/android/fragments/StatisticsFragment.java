@@ -52,6 +52,8 @@ public class StatisticsFragment extends Fragment {
         onSeekBarClick();
         onSaveLessonButtonClick();
         resetStatistics();
+
+        getActivity().setTitle(getString(R.string.statistics));
         return view;
     }
 

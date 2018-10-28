@@ -33,10 +33,18 @@ public class LessonDescriptionFragment extends Fragment {
 
     public void openFile() {
         Bundle bundle = getArguments();
+        String title;
         if (bundle != null) {
             int id = bundle.getInt(Constants.KEY_INFO_FILE) + 1;
             String infoFile = "file:///android_asset/lessons/lesson_" + id + "/lesson" + id + ".html";
             descriptionWebView.loadUrl(infoFile);
+            if (id == 0) {
+                title = getString(R.string.about_app);
+                getActivity().setTitle(title);
+            } else {
+                title = getString(R.string.lesson) + " " + id;
+                getActivity().setTitle(title);
+            }
         }
     }
 

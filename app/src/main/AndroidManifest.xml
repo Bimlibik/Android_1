@@ -24,26 +24,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Статистика -->
-        <activity
-            android:name=".fragments.StatisticsFragment"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/statistics"
-            android:parentActivityName=".activities.MainActivity">
-
-        </activity>
-
-
-        <!-- Заметки -->
-        <activity
-            android:name=".fragments.NotesListFragment"
-            android:label="@string/notes"
-            android:parentActivityName=".activities.MainActivity">
-
-            <!-- Описание урока -->
-        </activity>
-
-
     </application>
 
 </manifest>

@@ -41,6 +41,7 @@
 
     <!--LessonDescription-->
     <string name="next_text">Далее</string>
+    <string name="lesson">Урок </string>
 
     <!--Notes-->
     <string name="note">Заметка</string>

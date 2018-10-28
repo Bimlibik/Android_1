@@ -6,7 +6,7 @@
     tools:context=".fragments.StartMenuFragment">
 
     <item
-        android:id="@+id/menu_start_activity_share"
+        android:id="@+id/menu_start_fragment_share"
         android:orderInCategory="1"
         android:icon="@drawable/ic_share"
         android:title="@string/share"
@@ -14,14 +14,14 @@
     </item>
 
     <item
-        android:id="@+id/menu_start_activity_settings"
+        android:id="@+id/menu_start_fragment_settings"
         android:orderInCategory="2"
         android:title="@string/settings"
         app:showAsAction="never">
     </item>
 
     <item
-        android:id="@+id/menu_start_activity_exit"
+        android:id="@+id/menu_start_fragment_exit"
         android:title="@string/exit"
         app:showAsAction="never"
         android:orderInCategory="3">

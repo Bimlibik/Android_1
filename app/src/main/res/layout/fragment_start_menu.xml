@@ -16,7 +16,7 @@
 
         <ImageView
             android:id="@+id/fragment_start_menu_image_view_main"
-            style="@style/StartActivityImageMainStyle"
+            style="@style/StartFragmentImageMainStyle"
             android:src="@drawable/img_start_activity_book" />
 
     </LinearLayout>
@@ -32,102 +32,102 @@
         android:background="@color/color_background">
 
         <LinearLayout
-            style="@style/StartActivityHorizontalLinearLayoutStyle">
+            style="@style/StartFragmentHorizontalLinearLayoutStyle">
 
             <ImageView
                 android:id="@+id/fragment_start_menu_image_view_info"
-                style="@style/StartActivityImageButtonStyle"
+                style="@style/StartFragmentImageButtonStyle"
                 android:src="@drawable/ic_start_activity_information" />
 
             <Button
                 android:id="@+id/fragment_start_menu_button_info"
-                style="@style/StartActivityButtonStyle"
+                style="@style/BoldFontStyle.StartFragmentButtonStyle"
                 android:text="@string/about_app" />
         </LinearLayout>
 
         <View
-            style="@style/StartActivityDividerStyle"/>
+            style="@style/StartFragmentDividerStyle"/>
 
         <LinearLayout
-            style="@style/StartActivityHorizontalLinearLayoutStyle">
+            style="@style/StartFragmentHorizontalLinearLayoutStyle">
 
             <ImageView
                 android:id="@+id/fragment_start_menu_image_view_theory"
-                style="@style/StartActivityImageButtonStyle"
+                style="@style/StartFragmentImageButtonStyle"
                 android:src="@drawable/ic_start_activity_theory" />
 
             <Button
                 android:id="@+id/fragment_start_menu_button_theory"
-                style="@style/StartActivityButtonStyle"
+                style="@style/BoldFontStyle.StartFragmentButtonStyle"
                 android:fontFamily="@assets/fonts/rubikLight"
                 android:text="@string/theory" />
         </LinearLayout>
 
         <View
-            style="@style/StartActivityDividerStyle"/>
+            style="@style/StartFragmentDividerStyle"/>
 
         <LinearLayout
-            style="@style/StartActivityHorizontalLinearLayoutStyle">
+            style="@style/StartFragmentHorizontalLinearLayoutStyle">
 
             <ImageView
                 android:id="@+id/fragment_start_menu_image_view_cheat"
-                style="@style/StartActivityImageButtonStyle"
+                style="@style/StartFragmentImageButtonStyle"
                 android:src="@drawable/ic_start_activity_cheat" />
 
             <Button
                 android:id="@+id/fragment_start_menu_button_cheat"
-                style="@style/StartActivityButtonStyle"
+                style="@style/BoldFontStyle.StartFragmentButtonStyle"
                 android:text="@string/cheat" />
         </LinearLayout>
 
         <View
-            style="@style/StartActivityDividerStyle"/>
+            style="@style/StartFragmentDividerStyle"/>
 
         <LinearLayout
-            style="@style/StartActivityHorizontalLinearLayoutStyle">
+            style="@style/StartFragmentHorizontalLinearLayoutStyle">
 
             <ImageView
                 android:id="@+id/fragment_start_menu_image_view_notes"
-                style="@style/StartActivityImageButtonStyle"
+                style="@style/StartFragmentImageButtonStyle"
                 android:src="@drawable/ic_start_activity_notes" />
 
             <Button
                 android:id="@+id/fragment_start_menu_button_notes"
-                style="@style/StartActivityButtonStyle"
+                style="@style/BoldFontStyle.StartFragmentButtonStyle"
                 android:text="@string/notes" />
         </LinearLayout>
 
         <View
-            style="@style/StartActivityDividerStyle"/>
+            style="@style/StartFragmentDividerStyle"/>
 
         <LinearLayout
-            style="@style/StartActivityHorizontalLinearLayoutStyle">
+            style="@style/StartFragmentHorizontalLinearLayoutStyle">
 
             <ImageView
                 android:id="@+id/fragment_start_menu_image_view_statistics"
-                style="@style/StartActivityImageButtonStyle"
+                style="@style/StartFragmentImageButtonStyle"
                 android:src="@drawable/ic_start_activity_statistics" />
 
             <Button
                 android:id="@+id/fragment_start_menu_button_statistics"
-                style="@style/StartActivityButtonStyle"
+                style="@style/BoldFontStyle.StartFragmentButtonStyle"
                 android:text="@string/statistics" />
         </LinearLayout>
 
         <View
-            style="@style/StartActivityDividerStyle"/>
+            style="@style/StartFragmentDividerStyle"/>
 
         <LinearLayout
-            style="@style/StartActivityHorizontalLinearLayoutStyle">
+            style="@style/StartFragmentHorizontalLinearLayoutStyle">
 
             <ImageView
                 android:id="@+id/fragment_start_menu_image_view_exit"
-                style="@style/StartActivityImageButtonStyle"
+                style="@style/StartFragmentImageButtonStyle"
                 android:src="@drawable/ic_start_activity_exit" />
 
             <Button
                 android:id="@+id/fragment_start_menu_button_exit"
-                style="@style/StartActivityButtonStyle"
+                style="@style/BoldFontStyle.StartFragmentButtonStyle"
                 android:text="@string/exit" />
         </LinearLayout>
 

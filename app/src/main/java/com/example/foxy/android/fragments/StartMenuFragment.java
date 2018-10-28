@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +49,7 @@ public class StartMenuFragment extends Fragment {
 
         unitGUI(view);
         onButtonClick();
+        getActivity().setTitle(getString(R.string.app_name));
         return view;
     }
 
@@ -57,6 +60,12 @@ public class StartMenuFragment extends Fragment {
         if (context instanceof OnSelectedButtonListener) {
             buttonListener = (OnSelectedButtonListener) context;
         }
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     public void unitGUI(View view) {
@@ -74,7 +83,7 @@ public class StartMenuFragment extends Fragment {
         statisticsImageView = view.findViewById(R.id.fragment_start_menu_image_view_statistics);
         exitImageView = view.findViewById(R.id.fragment_start_menu_image_view_exit);
 
-        shareMenuItem = view.findViewById(R.id.menu_start_activity_share);
+        shareMenuItem = view.findViewById(R.id.menu_start_fragment_share);
 
     }
 
@@ -157,7 +166,7 @@ public class StartMenuFragment extends Fragment {
         info.setArguments(bundle);
         getActivity().getSupportFragmentManager().beginTransaction().
                 setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).
-                replace(R.id.fragment_container,info).
+                replace(R.id.fragment_container, info).
                 addToBackStack(null).
                 commit();
     }
@@ -169,7 +178,6 @@ public class StartMenuFragment extends Fragment {
                 addToBackStack(null).
                 commit();
     }
-
 
 
     public void closeApp() {
@@ -202,29 +210,32 @@ public class StartMenuFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_start_fragment, menu);
+    }
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        getActivity().getMenuInflater().inflate(R.menu.menu_start_activity, menu);
 //        return super.onCreateOptionsMenu(menu);
 //    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//        switch (id) {
-//            case R.id.menu_start_activity_share:
-//                shareInfo();
-//                return true;
-//            case R.id.menu_start_activity_settings:
-//                return true;
-//            case R.id.menu_start_activity_exit:
-//                closeApp();
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_start_fragment_share:
+                shareInfo();
+                return true;
+            case R.id.menu_start_fragment_settings:
+                return true;
+            case R.id.menu_start_fragment_exit:
+                closeApp();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 
 }

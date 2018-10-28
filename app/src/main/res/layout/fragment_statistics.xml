@@ -10,7 +10,7 @@
     tools:context=".fragments.StatisticsFragment">
 
     <!--основной layout-->
-    <LinearLayout style="@style/StatisticsActivityVerticalLinearLayoutStyle">
+    <LinearLayout style="@style/StatisticsFragmentVerticalLinearLayoutStyle">
 
         <ImageView
             android:id="@+id/statistics_fragment_image_view"
@@ -22,56 +22,56 @@
 
         <!--блок с рекордами-->
         <LinearLayout
-            style="@style/StatisticsActivityVerticalLinearLayoutStyle"
+            style="@style/StatisticsFragmentVerticalLinearLayoutStyle"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="8dp">
 
             <!--дата-->
-            <LinearLayout style="@style/StartActivityHorizontalLinearLayoutStyle">
+            <LinearLayout style="@style/StartFragmentHorizontalLinearLayoutStyle">
                 <TextView
-                    style="@style/StatisticsActivityPrimaryTextViewStyle"
+                    style="@style/BoldFontStyle.StatisticsFragmentPrimaryTextViewStyle"
                     android:text="@string/date" />
 
                 <TextView
                     android:id="@+id/statistics_fragment_record_data"
-                    style="@style/StatisticsActivityChangeTextViewStyle"
+                    style="@style/UsualFontStyle.StatisticsFragmentChangeTextViewStyle"
                     android:text="@string/date_text" />
             </LinearLayout>
 
             <!--звание-->
-            <LinearLayout style="@style/StartActivityHorizontalLinearLayoutStyle">
+            <LinearLayout style="@style/StartFragmentHorizontalLinearLayoutStyle">
                 <TextView
-                    style="@style/StatisticsActivityPrimaryTextViewStyle"
+                    style="@style/BoldFontStyle.StatisticsFragmentPrimaryTextViewStyle"
                     android:text="@string/rank" />
 
                 <TextView
                     android:id="@+id/statistics_fragment_rank"
-                    style="@style/StatisticsActivityChangeTextViewStyle"
+                    style="@style/UsualFontStyle.StatisticsFragmentChangeTextViewStyle"
                     android:text="@string/rank_newbie" />
             </LinearLayout>
 
             <!--количество пройденных уроков-->
-            <LinearLayout style="@style/StartActivityHorizontalLinearLayoutStyle">
+            <LinearLayout style="@style/StartFragmentHorizontalLinearLayoutStyle">
                 <TextView
-                    style="@style/StatisticsActivityPrimaryTextViewStyle"
+                    style="@style/BoldFontStyle.StatisticsFragmentPrimaryTextViewStyle"
                     android:text="@string/number_of_lessons_learned" />
 
                 <TextView
                     android:id="@+id/statistics_fragment_lesson_record"
-                    style="@style/StatisticsActivityChangeTextViewStyle"
+                    style="@style/UsualFontStyle.StatisticsFragmentChangeTextViewStyle"
                     android:text="@string/zero" />
             </LinearLayout>
 
             <!--последний пройденный урок-->
-            <LinearLayout style="@style/StartActivityHorizontalLinearLayoutStyle">
+            <LinearLayout style="@style/StartFragmentHorizontalLinearLayoutStyle">
                 <TextView
-                    style="@style/StatisticsActivityPrimaryTextViewStyle"
+                    style="@style/BoldFontStyle.StatisticsFragmentPrimaryTextViewStyle"
                     android:text="@string/last_of_lessons_learned" />
 
                 <TextView
                     android:id="@+id/statistics_fragment_last_lesson"
-                    style="@style/StatisticsActivityChangeTextViewStyle"
+                    style="@style/UsualFontStyle.StatisticsFragmentChangeTextViewStyle"
                     android:text="@string/last_of_lessons_learned_text" />
             </LinearLayout>
 
@@ -79,7 +79,7 @@
 
         <!--отображение количества, выбранного ползунком-->
         <LinearLayout
-            style="@style/StatisticsActivityVerticalLinearLayoutStyle"
+            style="@style/StatisticsFragmentVerticalLinearLayoutStyle"
             android:layout_marginTop="16dp">
 
             <TextView
@@ -117,17 +117,17 @@
 
 
         <LinearLayout
-            style="@style/StartActivityHorizontalLinearLayoutStyle">
+            style="@style/StartFragmentHorizontalLinearLayoutStyle">
             <Button
                 android:id="@+id/statistics_fragment_save_button"
-                style="@style/StatisticsActivityButtonStyle"
+                style="@style/BoldFontStyle.StatisticsFragmentButtonStyle"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="8dp"
                 android:text="@string/save" />
 
             <Button
                 android:id="@+id/statistics_fragment_reset_button"
-                style="@style/StatisticsActivityButtonStyle"
+                style="@style/BoldFontStyle.StatisticsFragmentButtonStyle"
                 android:layout_marginRight="16dp"
                 android:text="@string/reset"/>
         </LinearLayout>

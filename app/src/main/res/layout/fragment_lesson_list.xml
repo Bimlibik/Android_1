@@ -13,6 +13,8 @@
         android:id="@+id/fragment_lesson_list_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layoutAnimation="@anim/animation_layout_lesson_list_fall_down"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
 </LinearLayout>
