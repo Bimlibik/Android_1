@@ -8,11 +8,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -35,9 +37,11 @@ public class StatisticsFragment extends Fragment {
     private SeekBar lessonSeekBar;
     private Button saveLessonButton;
     private Button resetLessonButton;
+    private ImageView mainImage;
     private MenuItem shareItem;
     private MenuItem settingsItem;
     private MenuItem quitItem;
+    private PopupMenu popupmenu;
     private SharedPreferences preferences;
     private int count;
     private int lessonRecordCount;
@@ -93,6 +97,8 @@ public class StatisticsFragment extends Fragment {
         resetLessonButton = view.findViewById(R.id.statistics_fragment_reset_button);
         rank = view.findViewById(R.id.statistics_fragment_rank);
         lastLesson = view.findViewById(R.id.statistics_fragment_last_lesson);
+        mainImage = view.findViewById(R.id.statistics_fragment_image_view);
+        mainImage.setOnClickListener(viewClickListener);
     }
 
 
@@ -230,7 +236,7 @@ public class StatisticsFragment extends Fragment {
         count = preferences.getInt(Constants.SAVE_STATISTICS_LESSONS, 0);
         lessonSumCount.setText(String.valueOf(count));
 
-        lessonRecordCount = preferences.getInt(Constants.SAVE_STATISTICS_RECORD,0);
+        lessonRecordCount = preferences.getInt(Constants.SAVE_STATISTICS_RECORD, 0);
     }
 
     private void resetStatistics() {
@@ -244,6 +250,37 @@ public class StatisticsFragment extends Fragment {
             }
         });
     }
+
+    private void showPopupmenu(View view) {
+        popupmenu = new PopupMenu(getContext(), view);
+        popupmenu.inflate(R.menu.popupmenu);
+
+        popupmenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.popummenu1:
+                        ToastUtils.shortInfoToast("Popup Menu 1", getContext());
+                        return true;
+                    case R.id.popummenu2:
+                        ToastUtils.shortInfoToast("Popup Menu 2", getContext());
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+
+        popupmenu.show();
+
+    }
+
+    View.OnClickListener viewClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            showPopupmenu(v);
+        }
+    };
 
 
 }
