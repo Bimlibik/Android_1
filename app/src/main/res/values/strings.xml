@@ -10,6 +10,9 @@
     <string name="statistics">Статистика</string>
     <string name="exit">Выход</string>
     <string name="i_studying_android">Ура! Я начал изучать Android!</string>
+    <string name="close_app">Закрыть приложение?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
 
     <!--LessonListActivity-->
 
@@ -31,13 +34,13 @@
     <string name="reset">Сброс</string>
     <string name="new_record_text">Новый рекорд!</string>
     <string name="excess_lesson">Выбранное количество больше существующих уроков</string>
+    <string name="share_lessons_learned">Пройдено уроков: </string>
 
 
     <string name="toast_add_notes">Потом я научусь создавать заметки</string>
 
     <!--LessonDescription-->
     <string name="next_text">Далее</string>
-
 
 
 </resources>

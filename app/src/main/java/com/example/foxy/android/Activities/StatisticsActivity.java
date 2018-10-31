@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.foxy.android.R;
 import com.example.foxy.android.models.Lesson;
+import com.example.foxy.android.utils.Constants;
 import com.example.foxy.android.utils.ToastUtils;
 
 import java.util.Date;
@@ -36,15 +37,12 @@ public class StatisticsActivity extends AppCompatActivity {
     private SharedPreferences preferences;
     private int count;
     private int lessonRecordCount;
-    private final String TAG = "MAIN_ACTIVITY_TAG";
-    private final String SAVED_SETTINGS = "SAVED_SETTINGS";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
-        Log.d(TAG, "Запуск метода onCreated");
 
         Lesson lesson = new Lesson(0, new Date());
 
@@ -55,60 +53,30 @@ public class StatisticsActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(TAG, "Запуск метода onStart");
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "Запуск метода onResume");
         loadStatistics();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(TAG, "Запуск метода onRestart");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "Запуск метода onPause");
         saveStatistics();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(TAG, "Запуск метода onStop");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "Запуск метода onDestroy");
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("lessonSumCount", count);   //сохраняем количество пройденных уроков
-        outState.putInt("lessonRecordCount", lessonRecordCount);  // сохраняем счетчик рекорда
-
-        Log.d(TAG, "Запуск метода onSaveInstanceState");
+        outState.putInt(Constants.SAVE_LESSON_SUM_COUNT, count);   //сохраняем количество пройденных уроков
+        outState.putInt(Constants.SAVE_LESSON_RECORD_COUNT, lessonRecordCount);  // сохраняем счетчик рекорда
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        count = savedInstanceState.getInt("lessonSumCount");
-        lessonRecordCount = savedInstanceState.getInt("lessonRecordCount");
+        count = savedInstanceState.getInt(Constants.SAVE_LESSON_SUM_COUNT);
+        lessonRecordCount = savedInstanceState.getInt(Constants.SAVE_LESSON_RECORD_COUNT);
         lessonSumCount.setText(String.valueOf(count));
-
-        Log.d(TAG, "Запуск метода onRestoreInstanceState");
     }
 
 
@@ -146,6 +114,7 @@ public class StatisticsActivity extends AppCompatActivity {
         });
     }
 
+
     private void onSaveLessonButtonClick() {
         saveLessonButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,17 +141,19 @@ public class StatisticsActivity extends AppCompatActivity {
         });
     }
 
+
+
     private void checkRank(int lessonCount) {
-        if (lessonCount >= 50) {
+        if (lessonCount >= Constants.RANK_LEARNER) {
             rank.setText(R.string.rank_learner);
         }
-        if (lessonCount >= 100) {
+        if (lessonCount >= Constants.RANK_DOCENT) {
             rank.setText(R.string.rank_docent);
         }
-        if (lessonCount >= 150) {
+        if (lessonCount >= Constants.RANK_MASTER) {
             rank.setText(R.string.rank_master);
         }
-        if (lessonCount >= 200) {
+        if (lessonCount >= Constants.RANK_PROFESSOR) {
             rank.setText(R.string.rank_professor);
         }
     }
@@ -213,26 +184,21 @@ public class StatisticsActivity extends AppCompatActivity {
     private void shareInfo() {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, "Пройдено уроков: " + String.valueOf(lessonRecordCount));
+        intent.putExtra(Intent.EXTRA_TEXT, R.string.share_lessons_learned + String.valueOf(lessonRecordCount));
         startActivity(intent);
-
-        //для обновления
-//        if (shareActionProvider != null) {
-//            shareActionProvider.setShareIntent(shareIntent);
-//        }
     }
 
     private void closeApp() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Закрыть приложение?");
+        alertDialogBuilder.setTitle(R.string.close_app);
         alertDialogBuilder.setMessage(null).setCancelable(false).
-                setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         moveTaskToBack(true);
                         android.os.Process.killProcess(android.os.Process.myPid());
                         System.exit(1);
                     }
-                }).setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                }).setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
             }
@@ -247,25 +213,24 @@ public class StatisticsActivity extends AppCompatActivity {
         SharedPreferences.Editor lessonEditor = preferences.edit();
         SharedPreferences.Editor recordEditor = preferences.edit();
 
-        rankEditor.putString("saved_rank", rank.getText().toString());
-        lessonEditor.putInt("saved_lessons", count);
-        recordEditor.putInt("saved_record", lessonRecordCount);
+        rankEditor.putString(Constants.SAVE_STATISTICS_RANK, rank.getText().toString());
+        lessonEditor.putInt(Constants.SAVE_STATISTICS_LESSONS, count);
+        recordEditor.putInt(Constants.SAVE_STATISTICS_RECORD, lessonRecordCount);
 
         rankEditor.apply();
         lessonEditor.apply();
         recordEditor.apply();
-
     }
 
     private void loadStatistics() {
         preferences = getPreferences(MODE_PRIVATE);
-        String savedRank = preferences.getString("saved_rank", "");
+        String savedRank = preferences.getString(Constants.SAVE_STATISTICS_RANK, "");
         rank.setText(savedRank);
 
-        count = preferences.getInt("saved_lessons", 0);
+        count = preferences.getInt(Constants.SAVE_STATISTICS_LESSONS, 0);
         lessonSumCount.setText(String.valueOf(count));
 
-        lessonRecordCount = preferences.getInt("saved_record",0);
+        lessonRecordCount = preferences.getInt(Constants.SAVE_STATISTICS_RECORD,0);
     }
 
     private void resetStatistics() {

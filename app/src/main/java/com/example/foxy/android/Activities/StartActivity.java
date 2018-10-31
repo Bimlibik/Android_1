@@ -10,9 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Switch;
-
 import com.example.foxy.android.R;
+import com.example.foxy.android.utils.Constants;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -70,7 +69,7 @@ public class StartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int position = -1;
                 Intent intent = new Intent(StartActivity.this, LessonDescriptionActivity.class);
-                intent.putExtra("position", position);
+                intent.putExtra(Constants.POSITION, position);
                 startActivity(intent);
             }
         });
@@ -121,7 +120,7 @@ public class StartActivity extends AppCompatActivity {
         notesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(StartActivity.this, NotesActivity.class);
+                Intent intent = new Intent(StartActivity.this, NotesListActivity.class);
                 startActivity(intent);
             }
         });
@@ -129,7 +128,7 @@ public class StartActivity extends AppCompatActivity {
         notesImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(StartActivity.this, NotesActivity.class);
+                Intent intent = new Intent(StartActivity.this, NotesListActivity.class);
                 startActivity(intent);
             }
         });
@@ -177,15 +176,15 @@ public class StartActivity extends AppCompatActivity {
 
     private void closeApp() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Закрыть приложение?");
+        alertDialogBuilder.setTitle(R.string.close_app);
         alertDialogBuilder.setMessage(null).setCancelable(false).
-                setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         moveTaskToBack(true);
                         android.os.Process.killProcess(android.os.Process.myPid());
                         System.exit(1);
                     }
-                }).setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                }).setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
             }
@@ -194,12 +193,16 @@ public class StartActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+
+
     private void shareInfo() {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.i_studying_android));
         startActivity(intent);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
