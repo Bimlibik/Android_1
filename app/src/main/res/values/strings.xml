@@ -47,5 +47,8 @@
     <string name="note">Заметка</string>
     <string name="entry">Запись</string>
 
+    <!--Contextual Menu-->
+    <string name="delete">Удалить</string>
+
 
 </resources>

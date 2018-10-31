@@ -33,4 +33,5 @@
 
     <!--LessonDescription-->
     <string name="next_text">Далее</string>
+    <string name="delete">Удалить</string>
 </resources>
