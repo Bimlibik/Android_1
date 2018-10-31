@@ -14,7 +14,7 @@
 
         <!-- Главный экран -->
         <activity
-            android:name=".activities.StartActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -24,37 +24,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Статистика -->
-        <activity
-            android:name=".activities.StatisticsActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/statistics"
-            android:parentActivityName=".activities.StartActivity">
-
-        </activity>
-
-        <!-- Список уроков -->
-        <activity
-            android:name=".activities.LessonListActivity"
-            android:label="@string/theory"
-            android:parentActivityName=".activities.StartActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
-
-        <!-- Заметки -->
-        <activity
-            android:name=".activities.NotesListActivity"
-            android:label="@string/notes"
-            android:parentActivityName=".activities.StartActivity">
-
-            <!-- Описание урока -->
-        </activity>
-        <activity
-            android:name=".activities.LessonDescriptionActivity"
-            android:parentActivityName=".activities.LessonListActivity">
-
-        </activity>
     </application>
 
 </manifest>

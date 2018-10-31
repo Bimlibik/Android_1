@@ -1,5 +1,5 @@
 <resources>
-    <!--StartActivity-->
+    <!--StartMenuFragment-->
     <string name="app_name">Изучение Android</string>
     <string name="about_app">О приложении</string>
     <string name="theory">Теория</string>
@@ -8,9 +8,9 @@
     <string name="statistics">Статистика</string>
     <string name="exit">Выход</string>
 
-    <!--LessonListActivity-->
+    <!--LessonListFragment-->
 
-    <!--StatisticsActivity-->
+    <!--StatisticsFragment-->
     <string name="date">Дата:</string>
     <string name="date_text">00.00.0000</string>
     <string name="rank">Звание:</string>

@@ -1,16 +1,20 @@
-package com.example.foxy.android.activities;
+package com.example.foxy.android.fragments;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
+import android.support.v7.widget.PopupMenu;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -21,7 +25,9 @@ import com.example.foxy.android.utils.ToastUtils;
 
 import java.util.Date;
 
-public class StatisticsActivity extends AppCompatActivity {
+import static android.content.Context.MODE_PRIVATE;
+
+public class StatisticsFragment extends Fragment {
 
     private TextView recordDate;
     private TextView lessonSumCount; //количество пройденных уроков
@@ -31,35 +37,44 @@ public class StatisticsActivity extends AppCompatActivity {
     private SeekBar lessonSeekBar;
     private Button saveLessonButton;
     private Button resetLessonButton;
+    private ImageView mainImage;
     private MenuItem shareItem;
     private MenuItem settingsItem;
     private MenuItem quitItem;
+    private PopupMenu popupmenu;
     private SharedPreferences preferences;
     private int count;
     private int lessonRecordCount;
 
-
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_statistics);
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_statistics, container, false);
         Lesson lesson = new Lesson(0, new Date());
-
-        unitGUI(lesson);
+        unitGUI(view, lesson);
+        loadStatistics();
         onSeekBarClick();
         onSaveLessonButtonClick();
         resetStatistics();
+
+        getActivity().setTitle(getString(R.string.statistics));
+        return view;
     }
 
     @Override
-    protected void onResume() {
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+
+    @Override
+    public void onResume() {
         super.onResume();
         loadStatistics();
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         saveStatistics();
     }
@@ -71,26 +86,19 @@ public class StatisticsActivity extends AppCompatActivity {
         outState.putInt(Constants.SAVE_LESSON_RECORD_COUNT, lessonRecordCount);  // сохраняем счетчик рекорда
     }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        count = savedInstanceState.getInt(Constants.SAVE_LESSON_SUM_COUNT);
-        lessonRecordCount = savedInstanceState.getInt(Constants.SAVE_LESSON_RECORD_COUNT);
-        lessonSumCount.setText(String.valueOf(count));
-    }
-
-
-    private void unitGUI(Lesson lesson) {
-        recordDate = findViewById(R.id.statistics_activity_record_data);
+    private void unitGUI(View view, Lesson lesson) {
+        recordDate = view.findViewById(R.id.statistics_fragment_record_data);
         recordDate.setText(lesson.getFormatDate());
 
-        lessonCount = findViewById(R.id.statistics_activity_lesson_count);
-        lessonSumCount = findViewById(R.id.statistics_activity_lesson_record);
-        lessonSeekBar = findViewById(R.id.statistics_activity_seek_bar);
-        saveLessonButton = findViewById(R.id.statistics_activity_save_button);
-        resetLessonButton = findViewById(R.id.statistics_activity_reset_button);
-        rank = findViewById(R.id.statistics_activity_rank);
-        lastLesson = findViewById(R.id.statistics_activity_last_lesson);
+        lessonCount = view.findViewById(R.id.statistics_fragment_lesson_count);
+        lessonSumCount = view.findViewById(R.id.statistics_fragment_lesson_record);
+        lessonSeekBar = view.findViewById(R.id.statistics_fragment_seek_bar);
+        saveLessonButton = view.findViewById(R.id.statistics_fragment_save_button);
+        resetLessonButton = view.findViewById(R.id.statistics_fragment_reset_button);
+        rank = view.findViewById(R.id.statistics_fragment_rank);
+        lastLesson = view.findViewById(R.id.statistics_fragment_last_lesson);
+        mainImage = view.findViewById(R.id.statistics_fragment_image_view);
+        mainImage.setOnClickListener(viewClickListener);
     }
 
 
@@ -132,16 +140,14 @@ public class StatisticsActivity extends AppCompatActivity {
                     // сравниваем текущее значение seekBar'a с предыдущим
                     if (lessonCountToInt > lessonRecordCount) {
                         lessonRecordCount = lessonCountToInt;
-                        ToastUtils.shortInfoToast(getString(R.string.new_record_text) + " " + lessonRecordCount, getApplicationContext());
+                        ToastUtils.shortInfoToast(getString(R.string.new_record_text) + " " + lessonRecordCount, getContext());
                     }
                 } else {
-                    ToastUtils.shortInfoToast(getString(R.string.excess_lesson), getApplicationContext());
+                    ToastUtils.shortInfoToast(getString(R.string.excess_lesson), getContext());
                 }
             }
         });
     }
-
-
 
     private void checkRank(int lessonCount) {
         if (lessonCount >= Constants.RANK_LEARNER) {
@@ -158,28 +164,28 @@ public class StatisticsActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_start_activity, menu);
-        return true;
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_start_activity_share:
-                shareInfo();
-                return true;
-            case R.id.menu_start_activity_settings:
-                return true;
-            case R.id.menu_start_activity_exit:
-                closeApp();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_start_activity, menu);
+//        return true;
+//    }
+//
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.menu_start_activity_share:
+//                shareInfo();
+//                return true;
+//            case R.id.menu_start_activity_settings:
+//                return true;
+//            case R.id.menu_start_activity_exit:
+//                closeApp();
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 
     private void shareInfo() {
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -189,12 +195,12 @@ public class StatisticsActivity extends AppCompatActivity {
     }
 
     private void closeApp() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
         alertDialogBuilder.setTitle(R.string.close_app);
         alertDialogBuilder.setMessage(null).setCancelable(false).
                 setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        moveTaskToBack(true);
+                        getActivity().moveTaskToBack(true);
                         android.os.Process.killProcess(android.os.Process.myPid());
                         System.exit(1);
                     }
@@ -208,7 +214,7 @@ public class StatisticsActivity extends AppCompatActivity {
     }
 
     private void saveStatistics() {
-        preferences = getPreferences(MODE_PRIVATE);
+        preferences = getActivity().getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor rankEditor = preferences.edit();
         SharedPreferences.Editor lessonEditor = preferences.edit();
         SharedPreferences.Editor recordEditor = preferences.edit();
@@ -223,14 +229,14 @@ public class StatisticsActivity extends AppCompatActivity {
     }
 
     private void loadStatistics() {
-        preferences = getPreferences(MODE_PRIVATE);
+        preferences = getActivity().getPreferences(MODE_PRIVATE);
         String savedRank = preferences.getString(Constants.SAVE_STATISTICS_RANK, "");
         rank.setText(savedRank);
 
         count = preferences.getInt(Constants.SAVE_STATISTICS_LESSONS, 0);
         lessonSumCount.setText(String.valueOf(count));
 
-        lessonRecordCount = preferences.getInt(Constants.SAVE_STATISTICS_RECORD,0);
+        lessonRecordCount = preferences.getInt(Constants.SAVE_STATISTICS_RECORD, 0);
     }
 
     private void resetStatistics() {
@@ -244,6 +250,37 @@ public class StatisticsActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void showPopupmenu(View view) {
+        popupmenu = new PopupMenu(getContext(), view);
+        popupmenu.inflate(R.menu.popupmenu);
+
+        popupmenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.popummenu1:
+                        ToastUtils.shortInfoToast("Popup Menu 1", getContext());
+                        return true;
+                    case R.id.popummenu2:
+                        ToastUtils.shortInfoToast("Popup Menu 2", getContext());
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+
+        popupmenu.show();
+
+    }
+
+    View.OnClickListener viewClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            showPopupmenu(v);
+        }
+    };
 
 
 }
