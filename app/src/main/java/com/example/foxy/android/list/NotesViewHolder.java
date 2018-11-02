@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.example.foxy.android.R;
 import com.example.foxy.android.models.Notes;
 
@@ -15,7 +16,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
     TextView dateTextView;
     ImageView removeImageView;
 
-    public NotesViewHolder(View itemView) {
+    public NotesViewHolder(final View itemView) {
         super(itemView);
         titleTextView = itemView.findViewById(R.id.notes_item_text_view_title);
         noteTextView = itemView.findViewById(R.id.notes_item_text_view_note);
@@ -28,7 +29,6 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
         noteTextView.setText(note.getNote());
         dateTextView.setText(note.getFormatDateOfNote());
     }
-
 
 }
 
