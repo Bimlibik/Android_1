@@ -1,12 +1,20 @@
 <resources>
     <!--StartMenuFragment-->
     <string name="app_name">Изучение Android</string>
+    <string name="share">Поделиться</string>
+    <string name="settings">Настройки</string>
     <string name="about_app">О приложении</string>
     <string name="theory">Теория</string>
     <string name="cheat">Шпаргалки</string>
     <string name="notes">Заметки</string>
     <string name="statistics">Статистика</string>
     <string name="exit">Выход</string>
+    <string name="i_studying_android">Ура! Я начал изучать Android!</string>
+    <string name="close_app">Закрыть приложение?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="open">Открыть</string>
+    <string name="close">Закрыть</string>
 
     <!--LessonListFragment-->
 
@@ -14,7 +22,7 @@
     <string name="date">Дата:</string>
     <string name="date_text">00.00.0000</string>
     <string name="rank">Звание:</string>
-    <string name="rank_newbie">Новичок</string>
+    <string name="rank_beginner">Новичок</string>
     <string name="rank_learner">Ученик</string>
     <string name="rank_docent">Доцент</string>
     <string name="rank_master">Магистр</string>
@@ -25,13 +33,23 @@
     <string name="last_of_lessons_learned_text">-</string>
     <string name="lessons_learned_per_day">Пройдено уроков за день</string>
     <string name="save">Сохранить</string>
+    <string name="reset">Сброс</string>
     <string name="new_record_text">Новый рекорд!</string>
     <string name="excess_lesson">Выбранное количество больше существующих уроков</string>
+    <string name="share_lessons_learned">Пройдено уроков: </string>
 
 
     <string name="toast_add_notes">Потом я научусь создавать заметки</string>
 
     <!--LessonDescription-->
     <string name="next_text">Далее</string>
+    <string name="lesson">Урок </string>
+
+    <!--Notes-->
+    <string name="note">Заметка</string>
+    <string name="entry">Запись</string>
+
+    <!--Contextual Menu-->
     <string name="delete">Удалить</string>
+
 </resources>
