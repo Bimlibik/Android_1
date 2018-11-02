@@ -243,7 +243,7 @@ public class StatisticsFragment extends Fragment {
         resetLessonButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rank.setText(R.string.rank_newbie);
+                rank.setText(R.string.rank_beginner);
                 lessonSumCount.setText(R.string.zero);
                 count = 0;
                 lessonRecordCount = 0;
