@@ -15,6 +15,7 @@ import com.example.foxy.android.list.DataAdapter;
 import com.example.foxy.android.models.Lesson;
 import com.example.foxy.android.utils.Constants;
 import com.example.foxy.android.utils.ToastUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,4 +87,5 @@ public class LessonListFragment extends Fragment {
         addLesson(R.drawable.lesson_list_icon_for_lesson_bn, "Урок б/н. В разработке");
         addLesson(R.drawable.lesson_list_icon_for_lesson_bn, "Урок б/н. В разработке");
     }
+
 }
