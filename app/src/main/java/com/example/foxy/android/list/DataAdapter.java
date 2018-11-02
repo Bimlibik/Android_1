@@ -1,4 +1,5 @@
 package com.example.foxy.android.list;
+
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.example.foxy.android.R;
 import com.example.foxy.android.models.Lesson;
+
 import java.util.List;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
@@ -15,6 +18,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     private List<Lesson> lessonList;
     private LayoutInflater inflater;
     private ItemClickListener clickListener;
+
 
     //    конструктор адаптера
     public DataAdapter(Context context, List<Lesson> lessonList) {
@@ -30,7 +34,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.bindView(lessonList.get(position));
     }
 
@@ -40,6 +44,20 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         return lessonList.size();
     }
 
+    public ItemClickListener getClickListener() {
+        return clickListener;
+    }
+
+    public void setClickListener(ItemClickListener itemClickListener) {
+        this.clickListener = itemClickListener;
+    }
+
+    public interface ItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
+
+//    ======================================================================================
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         protected ImageView image;
@@ -64,21 +82,9 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         }
     }
 
-    public ItemClickListener getClickListener() {
-        return clickListener;
-    }
+//    ======================================================================================
 
-    String getItem(int id) {
-        return lessonList.get(id).getTitleLesson();
-    }
 
-    public void setClickListener(ItemClickListener itemClickListener) {
-        this.clickListener = itemClickListener;
-    }
-
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
-    }
 }
 
 

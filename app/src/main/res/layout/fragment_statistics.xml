@@ -48,7 +48,7 @@
                 <TextView
                     android:id="@+id/statistics_fragment_rank"
                     style="@style/UsualFontStyle.StatisticsFragmentChangeTextViewStyle"
-                    android:text="@string/rank_newbie" />
+                    android:text="@string/rank_beginner" />
             </LinearLayout>
 
             <!--количество пройденных уроков-->

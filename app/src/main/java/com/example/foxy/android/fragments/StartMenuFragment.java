@@ -84,9 +84,7 @@ public class StartMenuFragment extends Fragment {
         exitImageView = view.findViewById(R.id.fragment_start_menu_image_view_exit);
 
         shareMenuItem = view.findViewById(R.id.menu_start_fragment_share);
-
     }
-
 
     public void onButtonClick() {
         infoButton.setOnClickListener(new View.OnClickListener() {
@@ -118,16 +116,12 @@ public class StartMenuFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 buttonListener.onButtonSelected(v.getId());
-//                Intent intent = new Intent(StartMenuFragment.this.getActivity(), NotesListFragment.class);
-//                startActivity(intent);
             }
         });
         notesImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 buttonListener.onButtonSelected(v.getId());
-//                Intent intent = new Intent(StartMenuFragment.this.getActivity(), NotesListFragment.class);
-//                startActivity(intent);
             }
         });
 
@@ -137,7 +131,6 @@ public class StartMenuFragment extends Fragment {
                 buttonListener.onButtonSelected(v.getId());
             }
         });
-
         statisticsImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,7 +143,6 @@ public class StartMenuFragment extends Fragment {
                 buttonListener.onButtonSelected(v.getId());
             }
         });
-
         exitImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -215,12 +207,6 @@ public class StartMenuFragment extends Fragment {
         inflater.inflate(R.menu.menu_start_fragment, menu);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getActivity().getMenuInflater().inflate(R.menu.menu_start_activity, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -236,6 +222,4 @@ public class StartMenuFragment extends Fragment {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 }

@@ -1,8 +1,11 @@
 package com.example.foxy.android.list;
 
 import android.support.annotation.NonNull;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -10,9 +13,10 @@ import com.example.foxy.android.R;
 import com.example.foxy.android.models.Lesson;
 import com.example.foxy.android.models.Notes;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class NotesAdapter extends  RecyclerView.Adapter<NotesViewHolder> {
+public class NotesAdapter extends RecyclerView.Adapter<NotesViewHolder> {
 
     private List<Notes> notesList = NotesList.getInstance().getNotesList();
 
