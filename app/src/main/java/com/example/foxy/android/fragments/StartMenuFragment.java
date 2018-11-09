@@ -3,6 +3,7 @@ package com.example.foxy.android.fragments;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.preference.PreferenceFragment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+
 
 import com.example.foxy.android.R;
 import com.example.foxy.android.utils.Constants;
@@ -171,7 +173,6 @@ public class StartMenuFragment extends Fragment {
                 commit();
     }
 
-
     public void closeApp() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this.getActivity());
         alertDialogBuilder.setTitle(R.string.close_app);
@@ -214,6 +215,10 @@ public class StartMenuFragment extends Fragment {
                 shareInfo();
                 return true;
             case R.id.menu_start_fragment_settings:
+                getActivity().getFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new SettingsFragment())
+                        .addToBackStack(null)
+                        .commit();
                 return true;
             case R.id.menu_start_fragment_exit:
                 closeApp();
