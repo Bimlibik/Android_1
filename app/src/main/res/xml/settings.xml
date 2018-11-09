@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Группа настроек № 1">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="check_box"
+            android:summary="Отображает элемент с флажком для настройки, которая может быть включена или выключена. "
+            android:title="CheckBox" />
+
+        <EditTextPreference
+            android:defaultValue="10"
+            android:dialogTitle="Введите значение"
+            android:inputType="number"
+            android:key="edit_text_number"
+            android:summary="Позволяет вводить строки, отображается в диалоговом окне"
+            android:title="EditTextNumber" />
+
+        <EditTextPreference
+            android:defaultValue="Text"
+            android:dialogTitle="Введите значение"
+            android:inputType="text"
+            android:key="edit_text"
+            android:summary="Позволяет вводить строки, отображается в диалоговом окне"
+            android:textIsSelectable="false"
+            android:title="EditText" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Группа настроек № 2">
+
+        <ListPreference
+            android:defaultValue="1"
+            android:dialogTitle="Выберите значение"
+            android:entries="@array/example_list_preference"
+            android:entryValues="@array/example_list_preference"
+            android:key="list_preference"
+            android:summary="Открывает диалоговое окно со списком значений. Позволяет выбрать только одно значение"
+            android:title="ListPreference" />
+
+        <MultiSelectListPreference
+            android:dialogTitle="Выберите значение"
+            android:entries="@array/example_list_preference"
+            android:entryValues="@array/example_list_preference"
+            android:key="multi_selection_list_preference"
+            android:summary="Открывает диалоговое окно со списком значений. Позволяет выбрать несколько значение"
+            android:title="MultiSelectListPreference" />
+
+    </PreferenceCategory>
+
+    <PreferenceScreen
+        android:key="group_3"
+        android:summary="Вход для запуска дочернего экрана с настройками"
+        android:title="Группа настроек № 3">
+        <RingtonePreference
+            android:key="ringtone_preference"
+            android:ringtoneType="all"
+            android:showDefault="true"
+            android:showSilent="true"
+            android:summary="Открывает диалоговое окно, в котором отображаются мелодии с устройства."
+            android:title="RingtonePreference" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="switch_preference"
+            android:summaryOff="Переключение между двумя состояниями - неактивно."
+            android:summaryOn="Переключение между двумя состояниями - активно."
+            android:switchTextOff="off"
+            android:switchTextOn="on"
+            android:title="SwitchPreference" />
+    </PreferenceScreen>
+
+
+</PreferenceScreen>
